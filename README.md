@@ -1,12 +1,16 @@
-# ESP32 CSI Tool
+# REAL TIME CSI via ESP32
 
-[ESP32 CSI Tool Website](https://stevenmhernandez.github.io/ESP32-CSI-Tool/)
+THis project aims to build a new method of using esp32's CSI capabilities and use it for real time applications such as running machine learning models in real-time, either locally on the esp32 or via mobile phones for practical applications.
 
-The purpose of this project is to allow for the collection of Channel State Information (CSI) from the ESP32 Wi-Fi enabled microcontroller. 
-By collecting this data rich signal source, we can use this information for tasks such as Wi-Fi Sensing and Device-free Localization directly from the small, self contained ESP32 microcontroller.  
+this project starts with its base as Steven Hernanzdez's amazing [ESP32 CSI Tool Website](https://stevenmhernandez.github.io/ESP32-CSI-Tool/) and progressively builds up upon it adding several new components to it. 
+
+The purpose of this project is to allow for the collection of Channel State Information (CSI) from the ESP32 Wi-Fi enabled microcontroller and then transmit it via bluetooth or/and run models locally on esp32 itself.
+By collecting this data rich signal source, we can use this information for tasks such as Heartrate estimation , activity recognition, Wi-Fi Sensing and Device-free Localization directly from the small, self contained ESP32 microcontroller.  
 
 The following projects can be found in this repository:
+* `./active_sta_bt` - *Active CSI Bluetooth transmission (Bluetooth Station)* - Connects to some Access Point (AP) (Router or another ESP32) and sends packet requests, receiving CSI data, then transmitting this CSI via bluetooth in realtime. (Typically used as CSI-TX-BT) 
 
+ESP32 CSI Tool:
 * `./active_sta` - *Active CSI collection (Station)* - Connects to some Access Point (AP) (Router or another ESP32) and sends packet requests. (Typically used as CSI-TX) 
 * `./active_ap` - *Active CSI collection (AP)* - AP which can be connected to by devices (ESP32, see previous). (Typically used as CSI-RX)
 * `./passive` - *Passive CSI collection* - Passively listens for CSI frames on a given channel (default: channel 3).
